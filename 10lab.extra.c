@@ -20,14 +20,9 @@ long long Factorial_rec(long long N) {
 int main () {
     long long N;
     N = 50;
-
-    if (N >= 0) {
-        printf("Factorial = %d\n", Factorial(N));
-        printf("Factorial = %d\n", Factorial_rec(N));
-    }
-    else {
-        printf("Error\n");
-    }
-
+    
+    printf("Factorial = %d\n", Factorial(N));
+    printf("Factorial = %d\n", Factorial_rec(N));
+    
     return 0;
 }
