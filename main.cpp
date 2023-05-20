@@ -1,93 +1,35 @@
-#include "matrix.h"
-#include "array.h"
+#include <iostream>
+#include "header.h"
 
 int main() {
+    std::vector<int> arr(3);
+    arr[0] = 0;
+    arr[1] = 42;
+    arr[2] = -1;
+    std::cout << "my vector: ";
+    for (int i = 0; i < arr.size(); i++) std::cout << arr[i] << " ";
+    std::cout << std::endl;
+    std::cout << "max element: " << max_el(arr) << std::endl;
 
-    // матрица 1
-    int matrix1[3][3] = {{1, 2, 3}, {1, 2, 3}, {1, 2, 3}};
-    Matrix Matrix1(matrix1);
-    cout << "matrix1" << endl;
-    Matrix1.Print();
-
-    //матрица 2
-    int matrix2[3][3] = {{1, 1, 1}, {2, 2, 2}, {3, 3, 3}};
-    Matrix Matrix2(matrix2);
-    cout << "matrix2" << endl;
-    Matrix2.Print();
-
-    // умножение матриц
-    Matrix MatrixM;
-    MatrixM = Matrix1.Multiply(Matrix2);
-    cout << "matrix1 & matrix2 multiply" << endl;
-    MatrixM.Print();
-
-    // умножение на вещественное число
-    Matrix MatrixF;
-    MatrixF = Matrix1.MultiplyFloat(3.0);
-    cout << "matrix1 multiply float" << endl;
-    MatrixF.Print();
-
-    // сложенние
-    Matrix MatrixP;
-    MatrixP = Matrix1.Plus(Matrix2);
-    cout << "matrix1 plus matrix2" << endl;
-    MatrixP.Print();
-
-    // вычитание
-    Matrix MatrixMi;
-    MatrixMi = Matrix1.Minus(Matrix2);
-    cout << "matrix1 minus matrix2" << endl;
-    MatrixMi.Print();
-
-    if (Matrix1 == Matrix2) {
-        cout << "is equal" << endl;
+    std::cout << "initializing stack with max size = 2" << std::endl;
+    stack<int> st(2);
+    std::cout << "trying to add 2 elements: ";
+    try {
+        st.push(1);
+        st.push(2);
     }
-
-    if (Matrix1 != Matrix2) {
-        cout << "is not equal" << endl;
+    catch (...) {
+        std::cout << "stack is full";
     }
-
-    if (Matrix1 > Matrix2) {
-        cout << "matrix1 is bigger" << endl;
+    std::cout << "success!" << std::endl;
+    std::cout << "trying to remove 3 elements: ";
+    try {
+        st.pop();
+        st.pop();
+        st.pop();
     }
-
-    if (Matrix1 < Matrix2) {
-        cout << "matrix1 is less" << endl;
+    catch (...) {
+        std::cout << "stack is empty";
     }
-
-
-
-    int array1[5] = { 1, 2, 3, 4, 5 };
-    int array2[4] = { 9, 8, 7, 6};
-
-    Array Array1(5, array1);
-    cout << "array1" << endl;
-    Array1.Print();
-
-    Array Array2(4, array2);
-    cout << "array2" << endl;
-    Array2.Print();
-
-    Array ArrayP(Array1 + Array2);
-    cout << "array1 + array2" << endl;
-    ArrayP.Print();
-
-    cout << "compare" << endl;
-    if (Array1 == Array2) {
-        cout << "is equal" << endl;
-    }
-
-    if (Array1 != Array2) {
-        cout << "is not equal" << endl;
-    }
-
-    if (Array1 > Array2) {
-        cout << "is longer" << endl;
-    }
-
-    if (Array1 < Array2) {
-        cout << "is not longer" << endl;
-    }
-
     return 0;
 }
